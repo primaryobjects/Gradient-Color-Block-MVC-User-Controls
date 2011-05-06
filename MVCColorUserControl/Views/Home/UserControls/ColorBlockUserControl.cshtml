@@ -1,0 +1,25 @@
+﻿@model MVCColorUserControl.Models.ColorModel
+
+@using (Ajax.BeginForm("DrawColor", "ColorBlockUserControl", new AjaxOptions { UpdateTargetId = "color-" + Model.Id }))
+{
+    <div>RGB (example: FFAA00)</div>
+    <div class="formLine">
+        @Html.EditorFor(x => x.RGBColor)
+    </div>
+
+    @Html.ValidationMessageFor(x => x.RGBColor)
+
+    <div>Width</div>
+    <div class="formLine">
+        @Html.EditorFor(x => x.Width)
+    </div>
+    
+    <div>Height</div>
+    <div class="formLine">
+        @Html.EditorFor(x => x.Height)
+    </div>
+    
+    <p><input type="submit" value="Color Me!" /></p>
+    
+    <div id="color-@Model.Id"><!-- Will be populated by AJAX method --></div>
+}

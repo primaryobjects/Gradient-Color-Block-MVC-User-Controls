@@ -1,0 +1,19 @@
+﻿@model MVCColorUserControl.Models.HomeModel
+@using MVCColorUserControl.Models
+
+@{
+    ViewBag.Title = "Color Demo";
+}
+
+<h2>@Model.WelcomeText</h2>
+
+<p>A Partial Control</p>
+
+@Html.Partial("UserControls/ColorBlockUserControl", new ColorModel())
+
+<hr />
+
+<p>A Partial Control that is initialized on Server-Side</p>
+@{
+    Html.RenderAction("InitializeUserControl");
+}
